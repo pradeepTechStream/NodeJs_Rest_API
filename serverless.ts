@@ -1,11 +1,13 @@
 import type { AWS } from '@serverless/typescript';
 import {
-    getAllEmployee
+    getAllEmployee,
+    getEmployee,
+    createEmployee
 } from '@functions/employee';
 
 
 const serverlessConfiguration: AWS = {
-    service: 'sbly-backend-nodejsapp',
+    service: 'aws-service',
     frameworkVersion: '3',
     plugins: ['serverless-esbuild', 'serverless-offline'],
     provider: {
@@ -24,6 +26,8 @@ const serverlessConfiguration: AWS = {
     // import the function via paths
     functions: {
         getAllEmployee,
+        getEmployee,
+        createEmployee
     },
         package: {
         individually: true

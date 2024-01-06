@@ -5,5 +5,14 @@ export default class EmployeeController {
         return await employeeTable.findAll();
     }
 
-    
+    async getEmployeeById(id: string): Promise<any> {
+        return await employeeTable.findOne({
+            where: { id: id }
+        });
+    }
+
+    async createEmployee(employee: employee): Promise<any> {
+        return await employeeTable.create(employee);
+    }
+
 }

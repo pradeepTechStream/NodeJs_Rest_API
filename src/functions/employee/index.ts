@@ -13,3 +13,15 @@ export const getAllEmployee = {
     ]
 };
 
+export const getEmployee = {
+    handler: `${handlerPath(__dirname)}/handler.getEmployee`,
+    events: [
+        {
+            http: {
+                method: 'get',
+                path: 'employee/{id}'
+            }
+        }
+    ]
+};
+

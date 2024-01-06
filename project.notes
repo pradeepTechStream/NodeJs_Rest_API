@@ -1,0 +1,105 @@
+
+Dev db config:
+--------------
+datasources:
+  default:
+    url: jdbc:mysql://sourceably-dev.ckibtmj976nm.ap-south-1.rds.amazonaws.com:3306/sourceably-dev
+    username: admin
+    password: sRiFDgeefNpoGOibpTEk
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jpa:
+      default:
+      entity-scan:
+      packages: com.oms.projectbuddy
+##################################################################################
+
+create new table: service_plan
+-------------------------------
+id: integer (PK)
+bussiness_plan: string
+no_of_users: integer
+No_of_project: integer
+payment_lifecycle: string (Monthly/Yearly)
+discount: float
+registrationId: string (fk: company_registration)
+is_include_supplier: boolean
+is_include_customer: boolean
+is_include_cyber_security: boolean
+payment_method_per_user: integer (TBD)
+payment_method_per_project: integer (TBD)
+##################################################################################
+
+Project structure:
+------------------
+controller:
+routing: 
+functions:
+    handler.ts (imports all functions)
+    studentFn.ts
+    emailFn.ts
+utils:
+model: (tables)
+interfaces: 
+logging: 
+    function log(string, type) {
+        if (type == dev && env == dev) {
+
+        } 
+    };
+DAO: (database ops)
+constants.ts (enums, constants)
+##################################################################################
+
+git@sbly:tusharsb/sbly-backend-apis.git
+git@bitbucket.org:tusharsb/sbly-backend-apis.git
+
+git@bitbucket.org:accountname/reponame.git  ->  git@alias:accountname/reponame.git
+
+git clone git@sbly:tusharsb/sbly-backend-helpers.git
+----------------------------------------------------------------------------------
+JWT keys:
+---------
+beta key: pleasvChangeThisSecretForANewOnebeta
+dev key: pleasvChangeThisSecretForANewOne
+
+dev.sourceably.com
+user creds:
+email: supplier0109@mailinator.com
+pass: Test@123
+
+dev login REST API: https://mhpdacdjb7.execute-api.ap-south-1.amazonaws.com/dev/login
+
+userTable: company_registration
+------------------------------------------------------------------------------------
+beta customer:
+customerbeta2003@mailinator.com
+Test@123
+
+supplierProfileReviewRequest table have new columns to add in prod
+
+=================================================
+tables to be created for beta
+user roles table FK of user role table
+user role
+access_role_management
+access_type
+resource_management
+
+
+
+review_questions_list
+review_case_study
+
+
+With the roleName we need to give the count from roles table
+validation on case sensitive "userRoleByName"
+
+
+approval history
+approver id , date, approved productid, status, notes(comments) --> should be added in details table also.
+
+get
+get history by approverid and productid(2apis)
+
+rolename we have get all users assigned.
+

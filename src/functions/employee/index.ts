@@ -25,3 +25,14 @@ export const getEmployee = {
     ]
 };
 
+export const createEmployee = {
+    handler: `${handlerPath(__dirname)}/handler.createEmployeeDetails`,
+    events: [
+        {
+            http: {
+                method: 'post',
+                path: 'employee'
+            }
+        }
+    ]
+};

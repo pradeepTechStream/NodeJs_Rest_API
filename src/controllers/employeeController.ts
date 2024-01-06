@@ -11,4 +11,8 @@ export default class EmployeeController {
         });
     }
 
+    async createEmployee(employee: employee): Promise<any> {
+        return await employeeTable.create(employee);
+    }
+
 }

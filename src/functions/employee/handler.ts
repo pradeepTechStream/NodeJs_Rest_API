@@ -36,3 +36,23 @@ export const getEmployee = middyfy(async (event: APIGatewayProxyEvent): Promise<
         });
     }
 });
+
+
+export const createEmployeeDetails = middyfy(async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    try {
+        const body = JSON.parse(JSON.stringify(event.body));
+        //body.created_at = new Date();
+        //body.updated_at = new Date();
+        const employee = await employeeController.createEmployee(body);
+        return formatJSONResponse({
+            statusCode: 200,
+            data: { employee }
+        });
+    } catch (e) {
+        return formatJSONResponse({
+            statusCode: 500,
+            data: { message: e }
+        });
+    }
+});
+

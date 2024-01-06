@@ -1,7 +1,8 @@
 import type { AWS } from '@serverless/typescript';
 import {
     getAllEmployee,
-    getEmployee
+    getEmployee,
+    createEmployee
 } from '@functions/employee';
 
 
@@ -25,7 +26,8 @@ const serverlessConfiguration: AWS = {
     // import the function via paths
     functions: {
         getAllEmployee,
-        getEmployee
+        getEmployee,
+        createEmployee
     },
         package: {
         individually: true

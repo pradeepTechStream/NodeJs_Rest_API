@@ -56,3 +56,57 @@ export const createEmployeeDetails = middyfy(async (event: APIGatewayProxyEvent)
     }
 });
 
+export const deleteEmployee = middyfy(async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    const id = event.pathParameters.id;
+    try {
+        const employee = await employeeController.deleteEmployee(id);
+        console.log('Employee deleted by id', employee);
+        return formatJSONResponse({
+            statusCode: 200,
+            data: { employee }
+        });
+    } catch (e) {
+        return formatJSONResponse({
+            statusCode: 500,
+            data: { message: e }
+        });
+    }
+});
+
+
+
+export const updateEmployee = middyfy(async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    try {
+        const body = JSON.parse(JSON.stringify(event.body));
+        //body.updated_at = new Date();
+        console.log('update', body);
+        const servicePlan = await employeeController.updateEmployee(body);
+        return formatJSONResponse({
+            statusCode: 200,
+            data: { servicePlan }
+        });
+    } catch (e) {
+        return formatJSONResponse({
+            statusCode: 500,
+            data: { message: e }
+        });
+    }
+});
+
+
+export const getEmployeeByEmail = middyfy(async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    const email = event.pathParameters.email;
+    try {
+        const employee = await employeeController.getEmployeeByEmail(email);
+        return formatJSONResponse({
+            statusCode: 200,
+            data: { employee }
+        });
+    } catch (e) {
+        return formatJSONResponse({
+            statusCode: 500,
+            data: { message: e }
+        });
+    }
+});
+

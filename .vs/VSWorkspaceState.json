@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src\\functions\\approvalData",
-    "\\src\\functions\\userDetails",
+    "\\src",
+    "\\src\\controllers",
+    "\\src\\functions",
+    "\\src\\functions\\employee",
+    "\\src\\libs",
     "\\src\\models"
   ],
+  "SelectedNode": "\\serverless.ts",
   "PreviewInSolutionExplorer": false
 }

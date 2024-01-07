@@ -2,7 +2,10 @@ import type { AWS } from '@serverless/typescript';
 import {
     getAllEmployee,
     getEmployee,
-    createEmployee
+    createEmployee,
+    deleteEmployee,
+    updateEmployee,
+    getEmployeeByEmail
 } from '@functions/employee';
 
 
@@ -27,7 +30,10 @@ const serverlessConfiguration: AWS = {
     functions: {
         getAllEmployee,
         getEmployee,
-        createEmployee
+        createEmployee,
+        deleteEmployee,
+        updateEmployee,
+        getEmployeeByEmail
     },
         package: {
         individually: true
